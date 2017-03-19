@@ -1,6 +1,6 @@
 # ssr-with-net-speeder
 
-FROM ubuntu:14.04.3
+FROM ubuntu:17.04
 MAINTAINER malaohu <tua@live.cn>
 
 RUN apt-get update && \
