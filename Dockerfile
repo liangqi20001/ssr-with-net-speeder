@@ -10,16 +10,9 @@ RUN chmod +x build.sh
 RUN ./build.sh
 
 RUN mv net_speeder /usr/local/bin/
-COPY entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/net_speeder
 
-# Start Net Speeder
-#CMD ["nohup /usr/local/bin/net_speeder venet0 \"ip\" >/dev/null 2>&1 &"]
+RUN nohup /usr/local/bin/net_speeder venet0 "ip" >/dev/null 2>&1 &
+RUN ping www.baidu.com -c 5
 
-#Test 
-#CMD ["ping www.baidu.com -c 5"]
-
-
-# Configure container to run as an executable
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+WORKDIR /ssr/shadowsocks
