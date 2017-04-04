@@ -1,17 +1,13 @@
 # ssr-with-net-speeder
 
-FROM ubuntu:14.04
-MAINTAINER malaohu <tua@live.cn>
+FROM FROM centos:7.3.1611
 
-RUN apt-get update && \
-apt-get clean  && \
-apt-get install -y python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
-apt-get clean
-
-RUN git clone -b manyuser https://github.com/breakwa11/shadowsocks.git ssr
+RUN yum install python python-pip python-m2crypto libnet1-dev libpcap0.8-dev libnet libpcap libnet-devel libpcap-devel git gcc -y
 RUN git clone https://github.com/snooda/net-speeder.git net-speeder
+RUN git clone -b manyuser https://github.com/breakwa11/shadowsocks.git ssr
 WORKDIR net-speeder
-RUN sh build.sh
+RUN chmod +x build.sh
+RUN ./build.sh
 
 RUN mv net_speeder /usr/local/bin/
 COPY entrypoint.sh /usr/local/bin/
