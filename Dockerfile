@@ -1,6 +1,6 @@
 # ssr-with-net-speeder
 
-FROM FROM centos:latest
+FROM FROM centos7
 
 RUN yum install python python-pip python-m2crypto libnet1-dev libpcap0.8-dev libnet libpcap libnet-devel libpcap-devel git gcc -y
 RUN git clone https://github.com/snooda/net-speeder.git net-speeder
