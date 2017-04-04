@@ -16,3 +16,4 @@ RUN nohup /usr/local/bin/net_speeder venet0 "ip" >/dev/null 2>&1 &
 RUN ping www.baidu.com -c 5
 
 WORKDIR /ssr/shadowsocks
+RUN python server.py -p 1443 -k password -m aes-256-cfb -O auth_sha1_v4 -o http_simple -d start
