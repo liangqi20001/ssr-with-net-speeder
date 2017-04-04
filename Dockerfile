@@ -5,7 +5,7 @@ MAINTAINER malaohu <tua@live.cn>
 
 RUN apt-get update && \
 apt-get clean  && \
-apt-get install -y python python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
+apt-get install -y python python-pip python-m2crypto libnet1-dev libpcap0.8-dev libnet libpcap libnet-devel libpcap-devel git gcc && \
 apt-get clean
 
 RUN git clone -b manyuser https://github.com/breakwa11/shadowsocks.git ssr
